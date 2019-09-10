@@ -340,11 +340,11 @@ class Viewer(pyglet.window.Window):
         )
         self._is_active = True
 
-        if self.run_in_thread:
-            self._thread = Thread(target=self._init_and_start_app)
-            self._thread.start()
-        else:
-            self._init_and_start_app()
+        # if self.run_in_thread:
+        #     self._thread = Thread(target=self._init_and_start_app)
+        #     self._thread.start()
+        # else:
+        self._init_and_start_app()
 
     @property
     def scene(self):
@@ -1002,6 +1002,9 @@ class Viewer(pyglet.window.Window):
         )
         self.switch_to()
         self.set_caption(self.viewer_flags['window_title'])
+        #pyglet.app.run()
+    
+    def start_app(self):
         pyglet.app.run()
 
     def _compute_initial_camera_pose(self):
